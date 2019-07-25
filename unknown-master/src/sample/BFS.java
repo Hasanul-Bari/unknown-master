@@ -181,13 +181,19 @@ public class BFS extends JFrame implements ActionListener {
         
         // Mark all the vertices as not visited(By default 
         // set as false) 
+        int src=s;
         boolean visited[] = new boolean[V];
+        
+        int level[] =new int[V];
+        for(int i=0; i<V; i++)
+            level[i]=-1;
 
         // Create a queue for BFS 
         LinkedList<Integer> queue = new LinkedList<Integer>();
 
         // Mark the current node as visited and enqueue it 
         visited[s] = true;
+        level[s]=0;
         queue.add(s);
 
         while (queue.size() != 0) {
@@ -196,7 +202,7 @@ public class BFS extends JFrame implements ActionListener {
             //System.out.print(s + " ");
             
             String ss=Integer.toString(s);
-            ta.append(ss+" -> ");
+            //ta.append(ss+" -> ");
 
             // Get all adjacent vertices of the dequeued vertex s 
             // If a adjacent has not been visited, then mark it 
@@ -206,8 +212,20 @@ public class BFS extends JFrame implements ActionListener {
                 int n = it.next();
                 if (!visited[n]) {
                     visited[n] = true;
+                    level[n]=level[s]+1;
                     queue.add(n);
                 }
+            }
+        }
+        
+        for(int i=0; i<V; i++)
+        {
+            if(i!=src)
+            {
+                if(level[i]!=-1)
+                    ta.append("Distance from "+src+" to "+i+" : "+level[i]+"\n");
+                else
+                    ta.append(i+" is not reachable to "+src+"\n");
             }
         }
     }
@@ -290,7 +308,7 @@ public class BFS extends JFrame implements ActionListener {
             
             bfs(src);
             
-            ta.append("END");
+            //ta.append("END");
             
             ta.setVisible(true);
             

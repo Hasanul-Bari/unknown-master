@@ -12,6 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class BFS extends JFrame implements ActionListener {
@@ -22,6 +24,8 @@ public class BFS extends JFrame implements ActionListener {
     private Font f;
     private ImageIcon img, hm;
     private JLabel imglabel,lb1,lb2,lb3,lb4,lb5,lb6;
+    private JTextArea ta;
+    private JScrollPane scroll;
 
     private int V,E,i=0;   // No. of vertices ,edges
     private LinkedList<Integer> adj[]; //Adjacency Lists 
@@ -134,6 +138,18 @@ public class BFS extends JFrame implements ActionListener {
         run.setFont(f);
         imglabel.add(run);
         
+        ta=new JTextArea();
+        ta.setBounds(300,100,600,500);
+        ta.setVisible(false);
+        ta.setFont(f);
+        ta.setLineWrap(true);
+        ta.setWrapStyleWord(true);
+        
+        scroll =new JScrollPane(ta,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(300,100,600,500);
+        
+        imglabel.add(ta);
+        
         
         btn1.addActionListener(this);
         next.addActionListener(this);
@@ -145,13 +161,7 @@ public class BFS extends JFrame implements ActionListener {
         
         
         
-        
-        
-        
-        
-        
-
-    
+            
     }
 
     // Function to add an edge into the graph 
@@ -183,7 +193,10 @@ public class BFS extends JFrame implements ActionListener {
         while (queue.size() != 0) {
             // Dequeue a vertex from queue and print it 
             s = queue.poll();
-            System.out.print(s + " ");
+            //System.out.print(s + " ");
+            
+            String ss=Integer.toString(s);
+            ta.append(ss+" -> ");
 
             // Get all adjacent vertices of the dequeued vertex s 
             // If a adjacent has not been visited, then mark it 
@@ -216,7 +229,7 @@ public class BFS extends JFrame implements ActionListener {
             String se=tf2.getText();
             E=Integer.parseInt(se);
             
-            System.out.println(V+" "+E);
+            ///System.out.println(V+" "+E);
             create();
             
             i++;
@@ -264,9 +277,26 @@ public class BFS extends JFrame implements ActionListener {
         {
             String ss=tf5.getText();
             
-            int s=Integer.parseInt(ss);
+            int src=Integer.parseInt(ss);
             
-            bfs(s);
+            
+            lb1.setVisible(false);
+            lb2.setVisible(false);
+            tf1.setVisible(false);
+            tf2.setVisible(false);
+            lb6.setVisible(false);
+            tf5.setVisible(false);
+            run.setVisible(false);
+            
+            bfs(src);
+            
+            ta.append("END");
+            
+            ta.setVisible(true);
+            
+            
+            
+            
         }
             
         

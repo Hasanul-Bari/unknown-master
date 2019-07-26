@@ -33,7 +33,7 @@ public class BFS extends JFrame implements ActionListener {
      
     BFS() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setBounds(10, 100, 1280, 720);
+        this.setBounds(10, 10, 1280, 720);
         this.setTitle("          ALGORITHMS           ");
         this.setResizable(false);
 

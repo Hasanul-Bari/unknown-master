@@ -15,10 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author devendra
- */
+
 public class TowersOfHanoi extends JFrame implements ActionListener,Runnable {
 
     public static void main(String[] args) {

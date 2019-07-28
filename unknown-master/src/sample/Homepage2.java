@@ -26,11 +26,11 @@ public class Homepage2 extends JFrame implements ActionListener {
     private JLabel label,label1,imglabel,hml;
     private CardLayout card;
     private Font f,f1,f2;
-    private JButton graph,search,dp,basics,hb,sorting,bfs,dfs,dij,ff;
+    private JButton graph,search,dp,basics,hb,sorting,bfs,dfs,dij,ff,toh;
     
     Homepage2() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setBounds(10, 100, 1280, 720);
+        this.setBounds(10, 10, 1280, 720);
         this.setTitle("          ALGORITHMS           ");
         this.setResizable(false);
         
@@ -101,8 +101,15 @@ public class Homepage2 extends JFrame implements ActionListener {
         search.setBounds(430,400,350,50);
         imglabel.add(search);
         
+        toh = new JButton("TowerOfHanoi");
+        toh.setFont(f);
+        toh.setBounds(430,500,350,50);
+        imglabel.add(toh);
+        
          
         hb.addActionListener(this);
+        graph.addActionListener(this);
+        toh.addActionListener(this);
         
        /* graph =new JButton("GRAPH");
         graph.setFont(f1);
@@ -123,6 +130,18 @@ public class Homepage2 extends JFrame implements ActionListener {
             dispose();
             Homepage1 fr = new Homepage1();
         fr.setVisible(true);
+        }
+        else if(ae.getSource()==graph)
+        {
+  
+            Graph fr = new Graph();
+            fr.setVisible(true);
+        }
+         else if(ae.getSource()==toh)
+        {
+  
+              TowersOfHanoi toh=new TowersOfHanoi();
+       toh.setVisible(true);
         }
     }
 

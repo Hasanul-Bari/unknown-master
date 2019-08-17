@@ -28,7 +28,7 @@ public final class Homepage1 extends JFrame implements ActionListener {
 
      
     
-    Homepage1() {
+    public Homepage1() {
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        this.setBounds(10, 10,1280, 720);
        this.setTitle("          ALGORITHMS           ");
@@ -88,6 +88,4 @@ public final class Homepage1 extends JFrame implements ActionListener {
   
 
 }
-
-
 

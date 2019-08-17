@@ -5,6 +5,7 @@
  */
 package sample;
 
+import graph.GraphMenu;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -18,48 +19,47 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Homepage2 extends JFrame implements ActionListener {
-  private Container c;
-    private JButton nxt,prv;
-    private CardLayout br1,br2;
+
+    private Container c;
+    private JButton nxt, prv;
+    private CardLayout br1, br2;
     private JPanel panel;
-    private ImageIcon icon,img,hm;
-    private JLabel label,label1,imglabel,hml;
+    private ImageIcon icon, img, hm;
+    private JLabel label, label1, imglabel, hml;
     private CardLayout card;
-    private Font f,f1,f2;
-    private JButton graph,search,dp,basics,hb,sorting,bfs,dfs,dij,ff,toh;
-    
+    private Font f, f1, f2;
+    private JButton graph, search, dp, basics, hb, sorting, bfs, dfs, dij, ff, toh;
+
     Homepage2() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setBounds(10, 10, 1280, 720);
         this.setTitle("          ALGORITHMS           ");
         this.setResizable(false);
-        
-        f=new Font("Algerian",Font.BOLD,25);
-        f1=new Font("Calibari",Font.BOLD,15);
 
-       
-        
+        f = new Font("Algerian", Font.BOLD, 25);
+        f1 = new Font("Calibari", Font.BOLD, 15);
+
         c = new Container();
         c = this.getContentPane();
         c.setBackground(Color.BLUE);
-        c.setLayout(null); 
-        
-        img=new ImageIcon(getClass().getResource("bg1R.png"));
-        hm=new ImageIcon(getClass().getResource("home (2).png"));
+        c.setLayout(null);
+
+        img = new ImageIcon(getClass().getResource("bg1R.png"));
+        hm = new ImageIcon(getClass().getResource("home (2).png"));
         imglabel = new JLabel(img);
-        imglabel.setBounds(0, 0,img.getIconWidth(), img.getIconHeight());
+        imglabel.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
         c.add(imglabel);
-        
-        hb =new JButton(hm);
-        hb.setBounds(10,20,hm.getIconWidth(),hm.getIconHeight());
+
+        hb = new JButton(hm);
+        hb.setBounds(10, 20, hm.getIconWidth(), hm.getIconHeight());
         imglabel.add(hb);
-        
+
         graph = new JButton("GRAPH ALGORITHMS");
         graph.setFont(f);
-        graph.setBounds(430,100,350,50);
+        graph.setBounds(430, 100, 350, 50);
         imglabel.add(graph);
-        
-       /*   bfs = new JButton("(i) BFS");
+
+        /*   bfs = new JButton("(i) BFS");
         bfs.setFont(f1);
         bfs.setBounds(70,180,200,40);
         imglabel.add(bfs);
@@ -79,69 +79,62 @@ public class Homepage2 extends JFrame implements ActionListener {
         ff.setBounds(70,330,200,40);
         imglabel.add(ff);
         
-        */
-        
-        
-        
-           dp = new JButton("DYNAMIC PROGRAMMING");
-        dp.setFont(f);
-        dp.setBounds(430,200,350,50);
-        imglabel.add(dp);
-        
-        
-           /* 
          */
-            sorting = new JButton("SORTIING ALGORITHMS");
+        dp = new JButton("DYNAMIC PROGRAMMING");
+        dp.setFont(f);
+        dp.setBounds(430, 200, 350, 50);
+        imglabel.add(dp);
+
+        /* 
+         */
+        sorting = new JButton("SORTIING ALGORITHMS");
         sorting.setFont(f);
-        sorting.setBounds(430,300,350,50);
+        sorting.setBounds(430, 300, 350, 50);
         imglabel.add(sorting);
-       
+
         search = new JButton("SEARCHING ALGORITHMS");
         search.setFont(f);
-        search.setBounds(430,400,350,50);
+        search.setBounds(430, 400, 350, 50);
         imglabel.add(search);
-        
+
         toh = new JButton("TowerOfHanoi");
         toh.setFont(f);
-        toh.setBounds(430,500,350,50);
+        toh.setBounds(430, 500, 350, 50);
         imglabel.add(toh);
-        
-         
+
         hb.addActionListener(this);
         graph.addActionListener(this);
         toh.addActionListener(this);
-        
-       /* graph =new JButton("GRAPH");
+         dp.addActionListener(this);
+
+        /* graph =new JButton("GRAPH");
         graph.setFont(f1);
         graph.setBounds(WIDTH, WIDTH, WIDTH, WIDTH);
-*/
+         */
     }
 
-    
     public static void main(String[] args) {
-       Homepage2 fr = new Homepage2();
+        Homepage2 fr = new Homepage2();
         fr.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==hb)
-        {
+        if (ae.getSource() == hb) {
             dispose();
             Homepage1 fr = new Homepage1();
-        fr.setVisible(true);
-        }
-        else if(ae.getSource()==graph)
-        {
-  
-            Graph fr = new Graph();
             fr.setVisible(true);
-        }
-         else if(ae.getSource()==toh)
-        {
-  
-              TowersOfHanoi toh=new TowersOfHanoi();
-       toh.setVisible(true);
+        } else if (ae.getSource() == graph) {
+
+            GraphMenu fr = new GraphMenu();
+            fr.setVisible(true);
+        } else if (ae.getSource() == toh) {
+
+            TowersOfHanoi toh = new TowersOfHanoi();
+            toh.setVisible(true);
+        } else if (ae.getSource() == dp) {
+            DP_INDEX fr = new DP_INDEX();
+            fr.setVisible(true);
         }
     }
 
